@@ -1,0 +1,17 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:stable
+    hostname: css101
+    networks:
+      - nginx_proxy_manager_default
+    #ports:
+    #  - 80:80
+    volumes:
+      - ./src:/usr/share/nginx/html
+      # - ./src/privacy:/usr/share/nginx/html/privacy
+    restart: always
+
+networks:
+  nginx_proxy_manager_default:
+    external: true
